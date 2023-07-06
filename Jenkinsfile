@@ -11,7 +11,7 @@ pipeline {
             steps {
                 script{
                sh 'rm -rf *.war'
-               sh 'jar -cvf ASStudentSurvey.war -C src/main/webapp/ .'
+               sh 'jar -cvf StudentSurvey.war -C src/main/webapp/ .'
 
                 }
             }
