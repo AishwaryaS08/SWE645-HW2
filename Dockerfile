@@ -1,4 +1,9 @@
-FROM tomcat:9.0-jdk15
-COPY StudentSurvey.war /usr/local/tomcat/webapps/
+FROM tomcat:latest
+
+LABEL maintainer="Aishwarya Suresh"
+
+ADD StudentSurvey.war /usr/local/tomcat/webapps/
+
 EXPOSE 8080
+
 CMD ["catalina.sh", "run"]
