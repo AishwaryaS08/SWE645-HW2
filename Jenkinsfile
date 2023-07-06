@@ -1,7 +1,7 @@
 pipeline {
   environment {
         registry = "AishwaryaS08/SWE645-HW2"
-        registryCredential = 'Docker'
+        registryCredential = 'dockerhub'
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
     agent any
@@ -12,6 +12,10 @@ pipeline {
                 script{
                sh 'rm -rf *.war'
                sh 'jar -cvf StudentSurvey.war -C src/main/webapp/ .'
+
+                  docker.withRegistry('',registryCredential){
+                  def customImage = docker.build("mihulsingh/assignmenttwo:${env.TIMESTAMP}")
+               }
 
                 }
             }
