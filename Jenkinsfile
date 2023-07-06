@@ -13,24 +13,9 @@ pipeline {
                sh 'rm -rf *.war'
                sh 'jar -cvf StudentSurvey.war -C src/main/webapp/ .'
 
-                  docker.withRegistry('',registryCredential){
-                  def customImage = docker.build("mihulsingh/assignmenttwo:${env.TIMESTAMP}")
-               }
-
                 }
             }
         }
-
-
-      stage('Push Image to Dockerhub') {
-         steps {
-            script{
-               docker.withRegistry('',registryCredential){
-                  sh "docker push aishwaryasuresh/assignmenttwo:${env.TIMESTAMP}"
-               }
-            }
-         }
-      }
       
     }
 }
