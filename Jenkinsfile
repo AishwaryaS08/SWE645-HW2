@@ -25,7 +25,7 @@ pipeline {
          steps {
             script{
                docker.withRegistry('',registryCredential){
-                  sh "docker push mihulsingh/assignmenttwo:${env.TIMESTAMP}"
+                  sh "docker push aishwaryasuresh/assignmenttwo:${env.TIMESTAMP}"
                }
             }
          }
