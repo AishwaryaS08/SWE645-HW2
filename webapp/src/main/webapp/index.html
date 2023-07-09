@@ -1,0 +1,100 @@
+
+<!--  Aishwarya Suresh G01369826 -->
+<!--  This is a Student Survey Form with various input fields. It consist of an external stylesheet to style the form.
+Few fields are marked as required. 
+The buttons Submit and cancel are pending action and the Back button would redirect you to the Class Homepage.  -->
+
+<!DOCTYPE html>
+<html>
+ 
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Survey Form</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+  <h1><img src="logo.png" alt="GMU Logo" class="logo" style="vertical-align: middle;">GMU Student Survey Form</h1>
+  <p>Please fill the form to help us improve our university!</p>
+ <div class="container">
+  <form action="submitForm" method="post">
+  <!--  The required fields -->
+    <label for="firstName">First Name*:</label>
+    <input type="text" id="firstName" name="firstName" required><br>
+    
+    <label for="lastName">Last Name*:</label>
+    <input type="text" id="lastName" name="lastName" required><br>
+    
+    <label for="streetAddress">Street Address*:</label>
+    <input type="text" id="streetAddress" name="streetAddress" required><br>
+    
+    <label for="city">City*:</label>
+    <input type="text" id="city" name="city" required><br>
+    
+    <label for="state">State*:</label>
+    <input type="text" id="state" name="state" required><br>
+    
+    <label for="zipCode">Zip Code*:</label>
+    <input type="text" id="zipCode" name="zipCode" required pattern="[0-9]{5}"><br>
+    
+    <label for="email">Email*:</label>
+	<input type="email" id="email" name="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}"><br>
+
+    <label for="telephone" >Telephone Number*:</label>
+	<input type="tel" id="tel" name="tel" required pattern="[0-9]{10}"><br>
+    
+    <label for="date">Date of Survey*:</label>
+	<input type="date" id="date" name="date" required>
+    
+    <!-- The optional fields -->
+    <label for="likedMost">What did you like most about the campus?</label><br>
+    <input type="checkbox" id="students" name="likedMost" value="students">
+    Students<br>
+    <input type="checkbox" id="location" name="likedMost" value="location">
+    Location<br>
+    <input type="checkbox" id="campus" name="likedMost" value="campus">
+    Campus<br>
+    <input type="checkbox" id="atmosphere" name="likedMost" value="atmosphere">
+    Atmosphere<br>
+    <input type="checkbox" id="dormrooms" name="likedMost" value="dormrooms">
+    Dorm Rooms<br>
+    <input type="checkbox" id="sports" name="likedMost" value="sports">
+    Sports<br><br>
+    
+    
+    <label for="interest">What made you interested in the university?</label><br>
+    <input type="radio" id="friends" name="interest" value="friends">
+    Friends<br>
+    <input type="radio" id="television" name="interest" value="television">
+    Television<br>
+    <input type="radio" id="internet" name="interest" value="internet">
+    Internet<br>
+    <input type="radio" id="others" name="interest" value="others">
+    Others<br><br>
+    
+    
+    <label for="recommendation">Likelihood of recommending this school:</label>
+    <select id="recommendation" name="recommendation">
+      <option value="Very Likely">Very Likely</option>
+      <option value="Likely">Likely</option>
+      <option value="Unlikely">Unlikely</option>
+    </select><br>
+    
+
+    <label for="raffle-input">Raffle Numbers:</label>
+	<input type="text" id="raffle-input" name="raffle" placeholder="Enter numbers (1-100) separated by commas" pattern="^([1-9][0-9]?|100)(,[1-9][0-9]?|,100){9,}$">
+	<button class="check-raffle-btn">Check Raffle</button>
+	<p id="raffle-result"></p><br>
+
+    <label for="comments">Additional Comments:</label>
+    <textarea id="comments" name="comments"></textarea><br>
+    
+    <!--  Buttons  -->
+    <input type="submit" value="Submit">
+    <input type="reset" value="Cancel">
+    <a href="http://aishwarya-myclass-hw1-bucket.s3-website.us-east-2.amazonaws.com" class="button" style="font-size:13px">Back</a>
+    
+  </form>
+  </div>
+</body>
+
+</html>
