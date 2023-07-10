@@ -20,7 +20,7 @@ pipeline {
       stage('Docker Build') {
     	agent any
      steps{
-                   sh 'docker push aishwaryasuresh08/asisgnmenttwo_as'
+                   sh 'docker build -t aishwaryasuresh08/asisgnmenttwo_as'
                 
     }
      }
