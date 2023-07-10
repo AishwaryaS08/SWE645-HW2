@@ -1,7 +1,6 @@
 pipeline {
    environment {
         registry = "AishwaryaS08/SWE645-HW2"
-        registryCredential = 'Docker'
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
@@ -24,8 +23,18 @@ pipeline {
    stage('Docker Build') {
     	agent any
       steps {
-      	sh 'docker build -t aishwaryasuresh08/assignmenttwo_as .'
+      	sh 'docker build -t aishwaryasuresh08/assignmenttwo_as:latest .'
       }
     }
+
+    stage('Docker Push') {
+    	agent any
+      steps {
+      	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
+        	sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPassword}"
+          sh 'docker push aishwaryasuresh08/assignmenttwo_as:latest'
+        }
+      }
+}
 }
                                                 
