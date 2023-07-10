@@ -17,17 +17,14 @@ pipeline {
             }
          }
       }
-     
-   }
-
-   stage('Docker Build') {
+      stage('Docker Build') {
     	agent any
       steps {
       	sh 'docker build -t aishwaryasuresh08/assignmenttwo_as:latest .'
       }
     }
 
-    stage('Docker Push') {
+      stage('Docker Push') {
     	agent any
       steps {
       	withCredentials([usernamePassword(credentialsId: 'dockerHub', passwordVariable: 'dockerHubPassword', usernameVariable: 'dockerHubUser')]) {
@@ -36,5 +33,10 @@ pipeline {
         }
       }
 }
+   }
+
+  
+
+   
 }
                                                 
