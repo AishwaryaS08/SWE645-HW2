@@ -6,17 +6,6 @@ pipeline {
    agent any
 
    stages {
-      stage('Build') {
-         steps {
-            script{
-               sh 'rm -rf *.war'
-               sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
-               //sh 'echo ${BUILD_TIMESTAMP}'
-
-            
-            }
-         }
-      }
       stage('Docker Build') {
     	agent any
      steps{
