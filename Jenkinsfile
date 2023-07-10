@@ -9,7 +9,8 @@ pipeline {
       stage('Docker Build') {
     	agent any
      steps{
-                   sh 'docker build -t aishwaryasuresh08/asisgnmenttwo_as https://github.com/AishwaryaS08/SWE645-HW2.git'
+                   sh 'docker build -t aishwaryasuresh08/asisgnmenttwo_as https://github.com/AishwaryaS08/SWE645-HW2.git --branch main'
+'
                 
     }
      }
