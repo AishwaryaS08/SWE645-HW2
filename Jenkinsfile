@@ -15,8 +15,7 @@ pipeline {
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                sh 'echo ${BUILD_TIMESTAMP}'
                 sh 'docker login -u aishwaryasuresh08 -p ${registryCredential}'
-               sh 'docker build --tag studentsurvey6451:0.1 .'
-               sh 'HI'
+               sh 'docker build --tag studentsurvey6451: ${BUILD_TIMESTAMP} .'
                }
             }
          }
