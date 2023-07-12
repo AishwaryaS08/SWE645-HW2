@@ -1,7 +1,7 @@
 pipeline {
    environment {
         registry = "aishwaryasuresh08/studentsurvey645"
-        registryCredential = 'registryCredential'
+        registryCredential = credentials('docker-pass')
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
@@ -14,8 +14,7 @@ pipeline {
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                sh 'echo ${BUILD_TIMESTAMP}'
 
-               docker.withRegistry('',registryCredential){
-                  def customImage = docker.build("aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}")
+               sh 'docker login -u aishwaryasuresh08 -p ${registryCredential}"
                }
             }
          }
