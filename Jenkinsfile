@@ -1,7 +1,7 @@
 pipeline {
    environment {
         registry = "aishwaryasuresh08/studentsurvey645"
-        registryCredential = 'docker-pass'
+        registryCredential = 'registrycredential'
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
