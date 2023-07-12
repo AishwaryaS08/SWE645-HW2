@@ -10,7 +10,7 @@ pipeline {
             script
                      {
                sh "docker login -u aishwaryasuresh08 -p ${DOCKERHUB_PASS}"
-                  def customImage = docker.build("aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}")
+            
                }
             }
          }
@@ -21,10 +21,16 @@ pipeline {
             script{
             
                   sh "docker push aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}"
+                  withCredentials([string(credentialsId: '7286e43a-34d7-467e-a52b-2140bd52735e', variable: '')]) {
+    sh 'docker login -u aishwaryasuresh08 -p ${docker-pass}'
+
+}
+                   sh 'docker push aishwaryasuresh08/studentsurvey645:0.1'
+}
                
             }
          }
-      }
+      
 
    }
 }
