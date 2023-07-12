@@ -3,7 +3,7 @@ pipeline {
         registry = "aishwaryasuresh08/studentsurvey645"
         registryCredential = credentials('docker-pass')
       DOCKERFILE_PATH='Dockerfile'
-        TIMESTAMP = new Date()
+      
     }
    agent any
 
@@ -15,7 +15,7 @@ pipeline {
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                sh 'echo ${BUILD_TIMESTAMP}'
                 sh 'docker login -u aishwaryasuresh08 -p ${registryCredential}'
-               sh 'docker build -t studentsurvey6451:${BUILD_TIMESTAMP} .'
+               sh 'docker build -t studentsurvey6451 .'
                }
             }
          }
@@ -25,7 +25,7 @@ pipeline {
       stage("Pushing Image to Dockerhub"){
          steps{
             script{
-                  sh 'docker push aishwaryasuresh08/studentsurvey6451:${BUILD_TIMESTAMP}'
+                  sh 'docker push aishwaryasuresh08/studentsurvey6451'
                
             }
          }
