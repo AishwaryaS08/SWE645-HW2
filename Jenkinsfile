@@ -29,7 +29,24 @@ pipeline {
             }
          }
       }
-    }
+    
+
+     stage('Deploying Rancher to single pod') {
+         steps {
+            script{
+               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey6451"
+            }
+         }
+      }
+
+      stage('Deploying Rancher as with load balancer') {
+         steps {
+            script{
+               sh "kubectl set image deployment/aishwaryasuresho container-0=aishwaryasuresh08/studentsurvey6451"
+            }
+         }
+      }
+   }
 }
 
       
