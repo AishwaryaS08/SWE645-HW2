@@ -1,7 +1,7 @@
 pipeline {
    environment {
         registry = "aishwaryasuresh08/studentsurvey645"
-        registryCredential = 'registrycredential'
+        registryCredential = 'registryCredential'
         TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
