@@ -25,7 +25,6 @@ pipeline {
          steps{
             script{
                   sh 'docker push aishwaryasuresh08/studentsurvey6451:${BUILD_TIMESTAMP}'
-'
                
             }
          }
