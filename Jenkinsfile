@@ -24,7 +24,7 @@ pipeline {
       stage("Pushing Image to Dockerhub"){
          steps{
             script{
-                  sh 'docker push aishwaryasuresh08/studentsurvey6451:0.1'
+                  sh 'docker push aishwaryasuresh08/studentsurvey6451'
                
             }
          }
