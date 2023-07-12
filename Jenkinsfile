@@ -12,7 +12,7 @@ pipeline {
             script{
                sh 'rm -rf *.war'
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
-               //sh 'echo ${BUILD_TIMESTAMP}'
+               sh 'echo ${BUILD_TIMESTAMP}'
 
                docker.withRegistry('',registryCredential){
                   def customImage = docker.build("aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}")
