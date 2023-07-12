@@ -17,7 +17,7 @@ pipeline {
                }
             }
          }
-      }
+      
 
       stage('Push Image to Dockerhub') {
          steps {
@@ -45,3 +45,4 @@ pipeline {
          }
       }
    }
+}
