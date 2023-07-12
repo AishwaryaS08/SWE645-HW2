@@ -3,7 +3,7 @@ pipeline {
         registry = "aishwaryasuresh08/studentsurvey645"
         registryCredential = credentials('docker-pass')
       DOCKERFILE_PATH='Dockerfile'
-        TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
+        TIMESTAMP = new Date().format("yyyyMMdd")
     }
    agent any
 
