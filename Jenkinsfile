@@ -15,7 +15,7 @@ pipeline {
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                sh 'echo ${BUILD_TIMESTAMP}'
                 sh 'docker login -u aishwaryasuresh08 -p ${registryCredential}'
-               def customImage = docker.build('aishwaryasuresh08/studentsurvey6451:${BUILD_TIMESTAMP}')
+               sh 'docker build --tag studentsurvey645'
                sh 'HI'
                }
             }
