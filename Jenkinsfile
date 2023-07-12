@@ -18,7 +18,15 @@ pipeline {
                }
             }
          }
+
+      stage("Pushing Image to Dockerhub"){
+         steps{
+            script{
+                  sh 'docker push aishwaryasuresh08/studentsurvey645:${BUID_TIMESTAMP}'
+            }
+         }
       }
+    }
 }
 
       
