@@ -22,9 +22,9 @@ pipeline {
       stage("Pushing Image to Dockerhub"){
          steps{
             script{
-               withCredentials([credentialsId: 'docker-pass', url: '']) {
-                  sh 'sudo docker push aishwaryasuresh08/studentsurvey645:${BUILD_TIMESTAMP}'
-               }
+               
+                  sh 'docker push aishwaryasuresh08/studentsurvey645:${BUILD_TIMESTAMP}'
+               
             }
          }
       }
