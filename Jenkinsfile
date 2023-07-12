@@ -8,8 +8,7 @@ pipeline {
       stage('Build') {
          steps {
             script{
-               sh 'rm -rf *.war'
-               sh 'jar -cvf assignment.war -C src/main/webapp/ .'
+              
                //sh 'echo ${BUILD_TIMESTAMP}'
 
                sh "docker login -u aishwaryasuresh08 -p ${DOCKERHUB_PASS}"
