@@ -7,12 +7,10 @@ pipeline {
    stages {
       stage('Build') {
          steps {
-            script{
-              
-               //sh 'echo ${BUILD_TIMESTAMP}'
+            script
 
                sh "docker login -u aishwaryasuresh08 -p ${DOCKERHUB_PASS}"
-                  def customImage = docker.build("aishwaryasuresh08/assignmenttwo:${env.TIMESTAMP}")
+                  def customImage = docker.build("aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}")
                }
             }
          }
@@ -22,7 +20,7 @@ pipeline {
          steps {
             script{
             
-                  sh "docker push aishwaryasuresh08/assignmenttwo:${env.TIMESTAMP}"
+                  sh "docker push aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}"
                
             }
          }
@@ -31,7 +29,7 @@ pipeline {
       stage('Deploying Rancher to single pod') {
          steps {
             script{
-               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey645:0.1:${env.TIMESTAMP}"
+               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}"
             }
          }
       }
