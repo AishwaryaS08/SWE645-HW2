@@ -2,8 +2,7 @@ pipeline {
    environment {
         registry = "aishwaryasuresh08/studentsurvey645"
         registryCredential = credentials('docker-pass')
-      DOCKERFILE_PATH='Dockerfile'
-      
+       TIMESTAMP = new Date().format("yyyyMMdd_HHmmss")
     }
    agent any
 
@@ -25,7 +24,7 @@ pipeline {
       stage("Pushing Image to Dockerhub"){
          steps{
             script{
-                  sh 'docker push aishwaryasuresh08/studentsurvey6451:'
+                  sh 'docker push aishwaryasuresh08/studentsurvey6451:${BUILD_TIMESTAMP}'
 '
                
             }
