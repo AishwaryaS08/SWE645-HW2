@@ -11,7 +11,7 @@ pipeline {
          steps {
             script{
                sh 'rm -rf *.war'
-               sh 'jar -cvf assignment.war -C src/main/webapp/ .'
+               sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                //sh 'echo ${BUILD_TIMESTAMP}'
 
                docker.withRegistry('',registryCredential){
