@@ -5,15 +5,14 @@ pipeline {
    agent any
 
    stages {
-      stage('Build') {
-                  steps {
-            script
-                     {
-               sh "docker login -u aishwaryasuresh08 -p ${DOCKERHUB_PASS}"
-            
-               }
+
+      stage('Build docker image'){
+            steps{
+                script{
+                    sh 'docker build -t aishwaryasuresh08/studentsurvey645 .'
+                }
             }
-         }
+        }
       
 
       stage('Push Image to Dockerhub') {
