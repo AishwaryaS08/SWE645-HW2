@@ -6,9 +6,9 @@ pipeline {
 
    stages {
       stage('Build') {
-         steps {
+                  steps {
             script
-
+                     {
                sh "docker login -u aishwaryasuresh08 -p ${DOCKERHUB_PASS}"
                   def customImage = docker.build("aishwaryasuresh08/studentsurvey645:${env.TIMESTAMP}")
                }
