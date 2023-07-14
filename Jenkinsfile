@@ -14,7 +14,7 @@ pipeline {
                sh 'jar -cvf AishwaryaSuresh_StudentSurveyForm.war -C src/main/webapp/ .'
                sh 'echo ${BUILD_TIMESTAMP}'
                 sh 'docker login -u aishwaryasuresh08 -p ${registryCredential}'
-               sh 'docker build -t aishwaryasuresh08/studentsurvey6451 .'
+               sh 'docker build -t aishwaryasuresh08/studentsurvey645 .'
                }
             }
          }
@@ -24,7 +24,7 @@ pipeline {
       stage("Pushing Image to Dockerhub"){
          steps{
             script{
-                  sh 'docker push aishwaryasuresh08/studentsurvey6451'
+                  sh 'docker push aishwaryasuresh08/studentsurvey645'
                
             }
          }
@@ -34,7 +34,7 @@ pipeline {
      stage('Deploying Rancher to single pod') {
          steps {
             script{
-               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey6451"
+               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey645"
             }
          }
       }
@@ -42,7 +42,7 @@ pipeline {
       stage('Deploying Rancher as with load balancer') {
          steps {
             script{
-               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey6451"
+               sh "kubectl set image deployment/aishwaryasuresh container-0=aishwaryasuresh08/studentsurvey645"
             }
          }
       }
